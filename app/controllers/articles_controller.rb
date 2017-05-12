@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   def new
     # @pin = current_user.pins.build
     @article = Article.new
+    @button_title = 'Добавить'
   end 
 
   def create
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @button_title = 'Редактировать'
   end
 
   def update
