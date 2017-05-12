@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :vkontakte]
   validates :name, presence: true, length: {maximum: 50}
 
   def self.from_omniauth(auth)
@@ -13,6 +13,20 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.name = auth.info.name
       user.password = Devise.friendly_token[0,20]
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        user.email = data['email'] if user.email.blank?
+      end
+
+      if data = session['devise.vkontakte_data'] && session['devise.vkontakte_data']['extra']['raw_info']
+        user.uid = data['id']
+        user.name = "#{data['first_name']} #{data['last_name']}" if user.name.blank?
+        user.provider = 'vkontakte'
+      end
     end
   end
 end
