@@ -26,6 +26,7 @@
         <% else %>
           <%= link_to 'Войти', new_user_session_path, class: 'btn btn-default navbar-btn' %>
           <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-default navbar-btn' %>
         <% end %>
         <style type="text/css">
           .navbar-btn-right {
