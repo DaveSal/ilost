@@ -11,6 +11,10 @@ footer {
   text-align: center;
 }
 
+.article-thumbnail {
+  text-align: center;
+}
+
 .article-show {
   width: 70%;
   margin-left: 15%;
@@ -19,7 +23,7 @@ footer {
 }
 
 .form-width {
-  width: 40%;
+  width: 50%;
 }
 
 .form-section {

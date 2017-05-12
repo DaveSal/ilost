@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+  belongs_to :category
+  belongs_to :subcategory
+
   validates :title, presence: true
   validates :description, presence: true
 
