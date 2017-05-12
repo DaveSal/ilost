@@ -1,0 +1,4 @@
+<%= @article.title %>
+<%= @article.description %>
+<%= link_to 'Редактировать объявление', edit_article_path, class: "btn btn-default" %>
+<%= link_to 'Удалить объявление', article_path, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-default" %>
