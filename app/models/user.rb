@@ -19,13 +19,15 @@ class User < ApplicationRecord
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        user.uid = data['id']
+        user.provider = 'facebook'
         user.email = data['email'] if user.email.blank?
       end
 
       if data = session['devise.vkontakte_data'] && session['devise.vkontakte_data']['extra']['raw_info']
         user.uid = data['id']
-        user.name = "#{data['first_name']} #{data['last_name']}" if user.name.blank?
         user.provider = 'vkontakte'
+        user.name = "#{data['first_name']} #{data['last_name']}" if user.name.blank?
       end
     end
   end
