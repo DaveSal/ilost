@@ -1,7 +1,13 @@
 <article class="article-show">
   <h1><%= @article.title %></h1>  
+  <figure>
+    <%= image_tag @article.image.url(:medium) %>
+    <small><figcaption><em>Изображение</em></figcaption></small>
+    
+  </figure>
 
-  <p><%= @article.description %></p>
+
+  <h3><%= @article.description %></h3>
 
   <p>
   <%= link_to 'Редактировать объявление', edit_article_path, class: "btn btn-default" %>
