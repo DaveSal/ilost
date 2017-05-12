@@ -10,6 +10,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry'
+  gem 'pry-byebug'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
