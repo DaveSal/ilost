@@ -19,7 +19,7 @@
     <div class="form-group <%= 'has-error' if @article.errors[:title].any? %>">
       <%= f.label 'Название', class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.text_field :title, maxlength: 30, class: 'form-control' %>
         <%= render 'partials/field_errors', object: @article, field_name: :title %>
       </div>
     </div>
