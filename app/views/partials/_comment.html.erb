@@ -1,0 +1,12 @@
+<% @comments.each do |comment| %>
+<article class="article-comment">
+  <p>********************</p>
+  <p><%= comment.message %></p>
+  <% if comment.user %>
+    <small>Добавлено пользователем <em><%= comment.user.name %></em></small> 
+  <% end %>
+
+  <small> Дата: <em id="date"><%= comment.created_at %></em></small>
+  <p>********************</p>
+</article>
+<% end %>

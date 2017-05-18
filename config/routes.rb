@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/user_articles'  => 'articles#user_articles'
 
   resources :articles
+  resources :comments, only: [:create]
 end

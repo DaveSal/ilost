@@ -1,0 +1,7 @@
+<%= form_tag comments_path, class: "article-comment" do %>
+
+  <%= text_area_tag :message %>
+  <%= hidden_field_tag 'article_id', @article.id %>
+  <%= hidden_field_tag 'user_id', current_user.id %>
+  <p><%= submit_tag 'Добавить', class: 'btn btn-default' %></p>
+<% end %>

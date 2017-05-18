@@ -10,14 +10,22 @@
     <small><figcaption><em>Изображение</em></figcaption></small>
   </figure>
 
-
   <h3><%= @article.description %></h3>
   <h4><%= (@article.contact) ? @article.contact : nil %></h4>
-<% if @article.user_id == current_user.id %>
+<% if has_access %>
   <p>
   <%= link_to 'Редактировать объявление', edit_article_path, class: "btn btn-default" %>
   <%= link_to 'Удалить объявление', article_path, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-default" %>
   </p>
 <% end %>
 </article>
+
+<h2 class="article-comment">Комментарии</h2>
+
+<% if current_user %>
+  <%= render 'partials/comment_form' %>
+<% end %>
+
+<%= render 'partials/comment' %>
+
 
