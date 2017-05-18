@@ -5,15 +5,17 @@ class ArticlesController < ApplicationController
     @article = Article.all.order("created_at DESC")
   end
 
+  def user_articles
+    @articles = current_user.articles
+  end
+
   def new
-    # @pin = current_user.pins.build
-    @article = Article.new
+    @article = current_user.articles.build
     @button_title = 'Добавить'
   end 
 
   def create
-    # @pin = current_user.pins.build(pin_params)
-    @article = Article.new(articles_params)
+    @article = current_user.articles.build(articles_params)
 
     if @article.save
       redirect_to @article, notice: "Успешно создано объявление."
@@ -46,7 +48,7 @@ class ArticlesController < ApplicationController
   private
 
   def articles_params
-    params.require(:article).permit(:title, :description, :image, :category_id, :subcategory_id)
+    params.require(:article).permit(:title, :description, :image, :category_id, :subcategory_id, :contact)
   end
 
   def find_article

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/lost_articles'  => 'home#lost_articles'
   get '/found_articles' => 'home#found_articles'
+  get '/user_articles'  => 'articles#user_articles'
 
   resources :articles
 end

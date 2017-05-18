@@ -1,6 +1,6 @@
 <article class='article-thumbnail'>
-  <% @articles.each do |article| %>
   <div class="row">
+  <% @articles.each do |article| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <%= image_tag article.image.url(:thumb) %>
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </div>
   <% end %>
+  </div>
 </article>
 
