@@ -1,0 +1,9 @@
+<h1>Отправленные сообщения</h1>
+
+<% @messages.each do |message| %>
+<p>**********</p>
+<p><strong>Тема:</strong> <%= message.title %></p>
+<p><strong>Текст:</strong> <%= message.content %></p>
+<p><strong>Дата:</strong> <%= message.created_at %></p>
+<p>**********</p>
+<% end %>

@@ -20,8 +20,10 @@
       <div class="navbar-btn-right">
         <% if current_user %>
           <ul>
-            <li><%= link_to 'Мои объявления', user_articles_path, class: 'navbar-link' %> </li>
             <li>Добро пожаловать, <%= current_user.name %></li>
+            <li><%= link_to 'Мои объявления', user_articles_path, class: 'navbar-link' %> </li>
+            <li><%= link_to 'Отправить сообщение', new_message_path, class: 'navbar-link' %> </li>
+            <li><%= link_to 'Отравленные сообщения', messages_path, class: 'navbar-link' %></li>
             <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
           </ul>
         <% else %>

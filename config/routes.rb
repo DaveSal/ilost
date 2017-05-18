@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :comments, only: [:create]
+  resources :messages, only: [:index, :new, :create]
 end
