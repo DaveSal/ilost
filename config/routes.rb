@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/found_articles' => 'home#found_articles'
   get '/user_articles'  => 'articles#user_articles'
 
+  get '/search' => 'search#index'
+
   resources :articles
   resources :comments, only: [:create]
   resources :messages, only: [:index, :new, :create]

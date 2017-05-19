@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   has_many   :comments
-  
+
   belongs_to :category
   belongs_to :subcategory
   belongs_to :user
@@ -14,4 +14,8 @@ class Article < ApplicationRecord
                     default_url: '/images/:style/missing.png'
   validates_attachment_content_type :image,
                     content_type: ['image/jpeg', 'image/gif', 'image/png']
+
+  def self.searchable_language
+    'russian'
+  end
 end
