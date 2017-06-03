@@ -1,5 +1,8 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Войти", new_session_path(resource_name) %><br />
+  <%= link_to "Войти", new_session_path(resource_name),class: 'btn btn-default navbar-btn', :style=>'color: #fff;
+    background-color: #3b5998;
+    border-color: #ccc;
+    font-weight: 700;' %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -20,6 +23,9 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-default navbar-btn', :style=>'color: #fff;
+    background-color: #3b5998;
+    border-color: #ccc;
+    font-weight: 700;' %><br />
   <% end -%>
 <% end -%>

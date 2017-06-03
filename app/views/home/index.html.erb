@@ -1,6 +1,7 @@
 <section class="jumbotron_section">
-  <div class="jumbotron">
-    <h1>Самой большой портал поиска пропавших вещей.</h1>
+  <div class="jumbotron" style="padding-bottom: 5px;background-color: #ffffff">
+    <h1 style="margin-top: -50px;font-size: 45px;">Платформа для найденных и утерянных вещей.</h1>
+    <%= image_tag("ruki.png", :alt => "logo", class: 'logo') %>
     <%= render 'partials/search' %>
     <p>
       <a class="btn btn-danger btn-lg" href="<%= found_articles_path %>" role="button">Я потерял вещь</a>
