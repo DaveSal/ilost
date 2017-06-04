@@ -11,6 +11,10 @@ class HomeController < ApplicationController
   def found_articles
     @articles = found_articles_search
   end
+  def doc_articles
+    @articles = doc_articles_search
+  end
+
 
   private
 
@@ -23,4 +27,10 @@ class HomeController < ApplicationController
     @lost_category = Category.where(title: 'Потерянное').first
     Article.where(category_id: @lost_category)
   end 
+
+  def doc_articles_search
+    @doc_category = Subcategory.where(title: 'Документы').first
+    Article.where(subcategory_id: @doc_category)
+  end 
+
 end
